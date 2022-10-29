@@ -1,0 +1,11 @@
+.rightbar{
+    flex: 3;
+    position: sticky;
+    right: 0;
+    top: 60px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
