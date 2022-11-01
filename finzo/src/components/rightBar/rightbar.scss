@@ -1,11 +1,122 @@
-.rightbar{
-    flex: 3;
-    position: sticky;
-    right: 0;
-    top: 60px;
-    height: calc(100vh - 70px);
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-        display: none;
+@import "../../style.scss";
+
+.rightbar {
+    @include themify($themes) {
+        flex: 3;
+        position: sticky;
+        right: 0;
+        top: 50px;
+        height: calc(100vh - 50px);
+        overflow-y: scroll;
+        background-color: themed("bgSoft");
+        color: themed("textColor");
+
+        @include mobile {
+            display: none;
+        }
+
+        @include tablet {
+            display: none;
+        }
+
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 10px;
+
+        }
+
+        &:hover::-webkit-scrollbar-thumb {
+            background-color: themed("scrollbar");
+            border-radius: 10px;
+        }
+
+        .container {
+            padding: 20px;
+
+            .item {
+                // -webkit-box-shadow: 0px 0px 9px 1px rgba(130, 130, 130, 0.58);
+                // -moz-box-shadow: 0px 0px 9px 1px rgba(130, 130, 130, 0.58);
+                // box-shadow: 0px 0px 9px 1px rgba(130, 130, 130, 0.58);
+                padding: 20px;
+                margin-bottom: 20px;
+                border:1px solid themed("border");
+                background-color: themed("bg");
+                border-radius: 10px;
+
+                span {
+                    color: gray;
+
+                }
+
+                .user {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 20px 0;
+
+                    .userinfo {
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        position: relative;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+
+                        .online {
+                            height: 12px;
+                            width: 12px;
+                            background-color: limegreen;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 0;
+                            left: 30px;
+                        }
+
+                        p {
+                            color: themed("textColorSoft");
+                            font-size: small;
+                        }
+
+                        span {
+                            font-weight: bold;
+                            color: themed("textColor");
+
+                        }
+                    }
+
+                    #time {
+                        font-size: 0.7rem;
+                    }
+
+                    .buttons {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        button {
+                            border: none;
+                            padding: 5px;
+                            color: white;
+                            cursor: pointer;
+
+                            &:first-child {
+                                background-color: #1148a7c6;
+                            }
+
+                            &:last-child {
+                                background-color: rgba(196, 13, 13, 0.81);
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 import "./leftbar.scss";
 
 const itemlist = [
@@ -25,21 +26,24 @@ const itemlist = [
 ];
 
 const Leftbar = () => {
+
+  const {currUser} = useContext(AuthContext)
+
   return (
     <div className="leftbar">
       <div className="container">
         <div className="menu">
           <div className="user">
             <img
-              src="https://randomuser.me/api/portraits/women/20.jpg"
+              src={currUser.dp}
               alt="pp"
             />
-            <span>John Doe</span>
+            <span>{currUser.userName}</span>
           </div>
 
           {itemlist.map((item, id) => {
             return (
-              <div className="item">
+              <div className="item" key={id}>
                 <img src={item.url} alt={item.name} key={id} />
                 <span>{item.name}</span>
               </div>
@@ -51,7 +55,7 @@ const Leftbar = () => {
           <span>Your Shortcurts</span>
           {itemlist.map((item, id) => {
             return (
-              <div className="item">
+              <div className="item" key={id}>
                 <img src={item.url} alt={item.name} key={id} />
                 <span>{item.name}</span>
               </div>
@@ -63,7 +67,7 @@ const Leftbar = () => {
           <span>Ohers</span>
           {itemlist.map((item, id) => {
             return (
-              <div className="item">
+              <div className="item" key={id}>
                 <img src={item.url} alt={item.name} key={id} />
                 <span>{item.name}</span>
               </div>
